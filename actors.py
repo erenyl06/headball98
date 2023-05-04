@@ -70,7 +70,7 @@ class Net(pygame.Rect):
         super(Net,self).__init__(Globals.win_width//2-10,320,20,175)
 
 
-class Ball(pygame.Rect):
+class Ball(pygame.Sprite):
     def __init__(self):
         super(Ball,self).__init__(800,200,20,20)
         self.yVelocity = 0
