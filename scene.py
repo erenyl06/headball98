@@ -1,6 +1,7 @@
 from actors import Player1,Player2,Ground,Net,Ball
 from config import Colors, Globals
 import pygame
+import os
 
 class SceneManager(object):
     def __init__(self):
@@ -20,6 +21,11 @@ class Scene(object):
     def handle_events(self, events):
         raise NotImplementedError
 
+player1Headpic = pygame.image.load(os.path.join('others','Head.png'))
+pla1Head = pygame.transform.scale(player1Headpic,(70,70))
+
+player2Headpic = pygame.image.load(os.path.join('others','Head2.png'))
+pla2Head = pygame.transform.scale(player2Headpic,(70,70))
 
 class GameScene(Scene):
     def __init__(self):
@@ -40,9 +46,10 @@ class GameScene(Scene):
         screen.blit(self.player2_score,(830,100))
         pygame.draw.rect(screen, Colors.blue,self.ground)
         pygame.draw.rect(screen,Colors.yellow,self.net)
-        pygame.draw.rect(screen,Colors.red,self.player1)
-        pygame.draw.rect(screen,Colors.green,self.player2)
+        screen.blit(pla1Head, (self.player1.x, self.player1.y))
+        screen.blit(pla2Head, (self.player2.x, self.player2.y))
         pygame.draw.rect(screen,Colors.white,self.ball)
+
 
     def update(self):
         pressed = pygame.key.get_pressed()
@@ -64,7 +71,7 @@ class GameScene(Scene):
         def update_points(key) :
             self.points[key] +=1
             self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.white)
-            self.player2_score=self.font.render("{}".format(self.points["player2"]),1, Colors.white)
+            self.player2_score=self.font.render("{}".format(self.points["player2"]),1,Colors.white)
 
         # if self.ball.x <= self.ball.width:
         #     update_points("player1")
