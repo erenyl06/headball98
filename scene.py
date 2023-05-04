@@ -49,8 +49,8 @@ class GameScene(Scene):
         self.ground = Ground()
         self.net = Net()
         self.points ={"player1": 0, "player2": 0}
-        self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.anan)
-        self.player2_score=self.font.render("{}".format(self.points["player2"]),1, Colors.anan)
+        self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.black)
+        self.player2_score=self.font.render("{}".format(self.points["player2"]),1, Colors.black)
         self.ball = Ball()
 
     def render(self,screen):
