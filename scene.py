@@ -27,6 +27,9 @@ pla1Head = pygame.transform.scale(player1Headpic,(70,70))
 player2Headpic = pygame.image.load(os.path.join('others','Head2.png'))
 pla2Head = pygame.transform.scale(player2Headpic,(70,70))
 
+background = pygame.image.load(os.path.join('others','back.png'))
+backgr = pygame.transform.scale(background,(Globals.win_width,Globals.win_height))
+
 class GameScene(Scene):
     def __init__(self):
         super(GameScene, self).__init__()
@@ -42,13 +45,14 @@ class GameScene(Scene):
         self.ball = Ball()
 
     def render(self,screen):
+        screen.blit(backgr,(0,0))
         screen.blit(self.player1_score,(150,100))
         screen.blit(self.player2_score,(830,100))
         pygame.draw.rect(screen, Colors.blue,self.ground)
         pygame.draw.rect(screen,Colors.yellow,self.net)
         screen.blit(pla1Head, (self.player1.x, self.player1.y))
         screen.blit(pla2Head, (self.player2.x, self.player2.y))
-        pygame.draw.rect(screen,Colors.white,self.ball)
+        pygame.draw.rect(screen,Colors.black,self.ball)
 
 
     def update(self):
@@ -70,8 +74,8 @@ class GameScene(Scene):
 
         def update_points(key) :
             self.points[key] +=1
-            self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.white)
-            self.player2_score=self.font.render("{}".format(self.points["player2"]),1,Colors.white)
+            self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.black)
+            self.player2_score=self.font.render("{}".format(self.points["player2"]),1,Colors.black)
 
         # if self.ball.x <= self.ball.width:
         #     update_points("player1")
