@@ -66,11 +66,11 @@ class GameScene(Scene):
 
     def update(self):
         pressed = pygame.key.get_pressed()
-        left,right,up = [pressed[key] for key in (pygame.K_LEFT, pygame.K_RIGHT,pygame.K_UP)]
-        A, D, W = [pressed[key] for key in (pygame.K_a, pygame.K_d,pygame.K_w)]
+        left,right = [pressed[key] for key in (pygame.K_LEFT, pygame.K_RIGHT)]
+        A, D = [pressed[key] for key in (pygame.K_a, pygame.K_d)]
         self.handle_point()
-        self.player1.update(left,right,up)
-        self.player2.update(A,D,W)
+        self.player1.update(left,right)
+        self.player2.update(A,D)
         self.ball.update(self.player1,self.player2)
         return
 
