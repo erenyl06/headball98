@@ -5,7 +5,7 @@ from math import cos,sin,radians,pi
 class Player1(pygame.Rect):
 
     def __init__(self):
-        super(Player1,self).__init__(20,445,50,50)
+        super(Player1,self).__init__(20,435,60,60)
         self.velocity = 5
         self.gravity = 1
         self.jumpHeight = 15
@@ -29,13 +29,13 @@ class Player1(pygame.Rect):
                 self.jump = False
                 self.jumpVelocity = self.jumpHeight
 
-        if self.y >=445:
-            self.y=445
+        if self.y >=435:
+            self.y=435
 
 
 class Player2(pygame.Rect):
     def __init__(self):
-        super(Player2,self).__init__(780,445,50,50)
+        super(Player2,self).__init__(780,435,60,60)
         self.velocity = 5
         self.gravity = 1
         self.jumpHeight = 15
@@ -57,8 +57,8 @@ class Player2(pygame.Rect):
                 self.jump = False
                 self.jumpVelocity = self.jumpHeight
 
-        if self.y >=445:
-            self.y=445
+        if self.y >=435:
+            self.y=435
 
 class Ground(pygame.Rect):
     def __init__(self):
