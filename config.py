@@ -9,3 +9,5 @@ class Colors:
     green = (0,255,0)
     blue = (0,0,255)
     yellow = (255,255,0)
+
+    anan=(31,69,31)
