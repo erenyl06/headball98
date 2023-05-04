@@ -36,6 +36,9 @@ nettex = pygame.transform.scale(netpic,(20,175))
 sandpic = pygame.image.load(os.path.join('others','sand.png'))
 sandtex = pygame.transform.scale(sandpic,(Globals.win_width,105))
 
+ballpic = pygame.image.load(os.path.join('others','ball.png'))
+balltex = pygame.transform.scale(ballpic,(30,30))
+
 class GameScene(Scene):
     def __init__(self):
         super(GameScene, self).__init__()
@@ -46,8 +49,8 @@ class GameScene(Scene):
         self.ground = Ground()
         self.net = Net()
         self.points ={"player1": 0, "player2": 0}
-        self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.white)
-        self.player2_score=self.font.render("{}".format(self.points["player2"]),1, Colors.white)
+        self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.black)
+        self.player2_score=self.font.render("{}".format(self.points["player2"]),1, Colors.black)
         self.ball = Ball()
 
     def render(self,screen):
@@ -58,7 +61,7 @@ class GameScene(Scene):
         screen.blit(nettex, (Globals.win_width//2-10,320))
         screen.blit(pla1Head, (self.player1.x, self.player1.y))
         screen.blit(pla2Head, (self.player2.x, self.player2.y))
-        pygame.draw.rect(screen,Colors.black,self.ball)
+        screen.blit(balltex,(self.ball.x+5,self.ball.y+5))
 
 
     def update(self):
