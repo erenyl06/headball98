@@ -15,7 +15,6 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        screen.fill(Colors.black)
         manager.scene.render(screen)
         manager.scene.handle_events(pygame.event.get())
         manager.scene.update()
