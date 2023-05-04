@@ -30,6 +30,9 @@ pla2Head = pygame.transform.scale(player2Headpic,(70,70))
 background = pygame.image.load(os.path.join('others','back.png'))
 backgr = pygame.transform.scale(background,(Globals.win_width,Globals.win_height))
 
+netpic = pygame.image.load(os.path.join('others','net.png'))
+nettex = pygame.transform.scale(netpic,(20,175))
+
 class GameScene(Scene):
     def __init__(self):
         super(GameScene, self).__init__()
@@ -49,7 +52,7 @@ class GameScene(Scene):
         screen.blit(self.player1_score,(150,100))
         screen.blit(self.player2_score,(830,100))
         pygame.draw.rect(screen, Colors.blue,self.ground)
-        pygame.draw.rect(screen,Colors.yellow,self.net)
+        screen.blit(nettex, (Globals.win_width//2-10,320))
         screen.blit(pla1Head, (self.player1.x, self.player1.y))
         screen.blit(pla2Head, (self.player2.x, self.player2.y))
         pygame.draw.rect(screen,Colors.black,self.ball)
