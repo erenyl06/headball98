@@ -33,6 +33,9 @@ backgr = pygame.transform.scale(background,(Globals.win_width,Globals.win_height
 netpic = pygame.image.load(os.path.join('others','net.png'))
 nettex = pygame.transform.scale(netpic,(20,175))
 
+sandpic = pygame.image.load(os.path.join('others','sand.png'))
+sandtex = pygame.transform.scale(sandpic,(Globals.win_width,105))
+
 class GameScene(Scene):
     def __init__(self):
         super(GameScene, self).__init__()
@@ -51,7 +54,7 @@ class GameScene(Scene):
         screen.blit(backgr,(0,0))
         screen.blit(self.player1_score,(150,100))
         screen.blit(self.player2_score,(830,100))
-        pygame.draw.rect(screen, Colors.blue,self.ground)
+        screen.blit(sandtex, (0,495))
         screen.blit(nettex, (Globals.win_width//2-10,320))
         screen.blit(pla1Head, (self.player1.x, self.player1.y))
         screen.blit(pla2Head, (self.player2.x, self.player2.y))
