@@ -22,10 +22,10 @@ class Scene(object):
         raise NotImplementedError
 
 player1Headpic = pygame.image.load(os.path.join('others','Head.png'))
-pla1Head = pygame.transform.scale(player1Headpic,(70,70))
+pla1Head = pygame.transform.scale(player1Headpic,(80,80))
 
 player2Headpic = pygame.image.load(os.path.join('others','Head2.png'))
-pla2Head = pygame.transform.scale(player2Headpic,(70,70))
+pla2Head = pygame.transform.scale(player2Headpic,(80,80))
 
 background = pygame.image.load(os.path.join('others','back.png'))
 backgr = pygame.transform.scale(background,(Globals.win_width,Globals.win_height))
@@ -61,7 +61,7 @@ class GameScene(Scene):
         screen.blit(nettex, (Globals.win_width//2-10,320))
         screen.blit(pla1Head, (self.player1.x, self.player1.y))
         screen.blit(pla2Head, (self.player2.x, self.player2.y))
-        screen.blit(balltex,(self.ball.x+5,self.ball.y+5))
+        screen.blit(balltex,(self.ball.x-5,self.ball.y-5))
 
 
     def update(self):
@@ -86,12 +86,14 @@ class GameScene(Scene):
             self.player1_score=self.font.render("{}".format(self.points["player1"]),1,Colors.black)
             self.player2_score=self.font.render("{}".format(self.points["player2"]),1,Colors.black)
 
-        # if self.ball.x <= self.ball.width:
-        #     update_points("player1")
-        #     self.ball.reset()
-        # if self.ball.x >= (Globals.win_width + self.ball.width):
-        #     update_points("player2")
-        #     self.ball.reset()
-        #     self.ball.dir_x *= -1
+        if self.ball.y >= 475:
+             if self.ball.x <= Globals.win_width/2-30 and self.ball.x >= -20:
+                update_points("player2")
+                self.ball.reset1()
+
+        if self.ball.y >= 475:
+             if self.ball.x >= Globals.win_width/2+10 and self.ball.x <= Globals.win_width:
+                update_points("player1")
+                self.ball.reset2()
 
 
