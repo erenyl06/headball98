@@ -5,7 +5,7 @@ import os
 
 class SceneManager(object):
     def __init__(self):
-        self.go_to(GameScene())
+        self.go_to(MenuScene())
 
     def go_to(self, scene):
         self.scene = scene
@@ -38,6 +38,8 @@ sandtex = pygame.transform.scale(sandpic,(Globals.win_width,105))
 
 ballpic = pygame.image.load(os.path.join('others','ball.png'))
 balltex = pygame.transform.scale(ballpic,(30,30))
+
+
 
 class GameScene(Scene):
     def __init__(self):
