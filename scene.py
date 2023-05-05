@@ -5,7 +5,7 @@ import os
 
 class SceneManager(object):
     def __init__(self):
-        self.go_to(MenuScene())
+        self.go_to(GameScene())
 
     def go_to(self, scene):
         self.scene = scene
@@ -97,5 +97,11 @@ class GameScene(Scene):
              if self.ball.x >= Globals.win_width/2+10 and self.ball.x <= Globals.win_width:
                 update_points("player1")
                 self.ball.reset2()
+
+        if self.ball.y < -20:
+                self.ball.reset1()
+
+
+
 
 
