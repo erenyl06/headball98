@@ -21,22 +21,22 @@ class Scene(object):
     def handle_events(self, events):
         raise NotImplementedError
 
-player1Headpic = pygame.image.load(os.path.join('others','Head.png'))
+player1Headpic = pygame.image.load(os.path.join('20290373_20290371_others', 'Head.png'))
 pla1Head = pygame.transform.scale(player1Headpic,(80,80))
 
-player2Headpic = pygame.image.load(os.path.join('others','Head2.png'))
+player2Headpic = pygame.image.load(os.path.join('20290373_20290371_others', 'Head2.png'))
 pla2Head = pygame.transform.scale(player2Headpic,(80,80))
 
-background = pygame.image.load(os.path.join('others','back.png'))
+background = pygame.image.load(os.path.join('20290373_20290371_others', 'back.png'))
 backgr = pygame.transform.scale(background,(Globals.win_width,Globals.win_height))
 
-netpic = pygame.image.load(os.path.join('others','net.png'))
+netpic = pygame.image.load(os.path.join('20290373_20290371_others', 'net.png'))
 nettex = pygame.transform.scale(netpic,(20,175))
 
-sandpic = pygame.image.load(os.path.join('others','sand.png'))
+sandpic = pygame.image.load(os.path.join('20290373_20290371_others', 'sand.png'))
 sandtex = pygame.transform.scale(sandpic,(Globals.win_width,105))
 
-ballpic = pygame.image.load(os.path.join('others','ball.png'))
+ballpic = pygame.image.load(os.path.join('20290373_20290371_others', 'ball.png'))
 balltex = pygame.transform.scale(ballpic,(30,30))
 
 
